@@ -8,11 +8,10 @@ class ProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeController = Get.find<ThemeController>();
     final theme = Theme.of(context);
     final isMobile = MediaQuery.of(context).size.width < 600;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -106,7 +105,7 @@ class _ProjectCard extends StatelessWidget {
     return Container(
       width:
           isMobile ? double.infinity : MediaQuery.of(context).size.width * 0.7,
-      height: isMobile ? 400 : 600,
+      height: isMobile ? 470 : 600,
       margin: isMobile ? const EdgeInsets.symmetric(horizontal: 16) : null,
       decoration: BoxDecoration(
         color: theme.cardColor,

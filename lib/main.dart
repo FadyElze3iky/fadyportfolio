@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'core/routes/app_pages.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_controller.dart';
+import 'package:device_preview/device_preview.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -20,7 +21,12 @@ void main() async {
   // Initialize theme controller
   Get.put(ThemeController());
 
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) => const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -36,6 +42,9 @@ class MyApp extends StatelessWidget {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      useInheritedMediaQuery: true,
     );
   }
 }
