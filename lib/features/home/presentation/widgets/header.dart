@@ -86,7 +86,7 @@ class Header extends StatelessWidget {
             ? 18.0
             : 20.0;
     final headlineSize = isSmallScreen
-        ? 60.0
+        ? 40.0
         : isMediumScreen
             ? 50.0
             : 80.0;
@@ -101,7 +101,10 @@ class Header extends StatelessWidget {
               style: theme.textTheme.headlineLarge!
                   .copyWith(fontSize: headlineSize),
             ),
-            Image.asset('assets/icons/fady_hi.png')
+            Image.asset(
+              'assets/icons/fadyhi.png',
+              scale: 20,
+            )
           ]),
           SizedBox(
             height: 20,

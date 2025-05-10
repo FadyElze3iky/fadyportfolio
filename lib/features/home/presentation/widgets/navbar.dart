@@ -126,108 +126,105 @@ class _NavbarState extends State<Navbar> {
         horizontal: size.width > 1200 ? 16 : 8,
         vertical: 8,
       ),
-      child: Flexible(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Obx(() {
-              return Row(
-                children: [
-                  MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      onTap: () => homeController.changeSection('home'),
-                      child: Image.asset(
-                        'assets/icons/logo.png',
-                        scale: 2,
-                        color: themeController.isDarkMode
-                            ? Colors.white
-                            : const Color.fromARGB(255, 139, 139, 139),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: size.width > 1200 ? 24 : 12),
-                  if (size.width > 600) ...[
-                    _NavButton(
-                      label: 'About',
-                      onPressed: () => homeController.changeSection('about'),
-                    ),
-                    _NavButton(
-                      label: 'Projects',
-                      onPressed: () => homeController.changeSection('projects'),
-                    ),
-                    _NavButton(
-                      label: 'Tech Stack',
-                      onPressed: () =>
-                          homeController.changeSection('tech stack'),
-                    ),
-                    _NavButton(
-                      label: 'Contact',
-                      onPressed: () => homeController.changeSection('contact'),
-                    ),
-                  ] else
-                    CompositedTransformTarget(
-                      link: _layerLink,
-                      child: IconButton(
-                        icon: const Icon(Icons.menu),
-                        onPressed: () {
-                          if (_overlayEntry == null) {
-                            _showOverlay(context);
-                          } else {
-                            _removeOverlay();
-                          }
-                        },
-                      ),
-                    ),
-                ],
-              );
-            }),
-            Obx(() {
-              return Row(
-                children: [
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/icons/linkedin_dark.png',
-                      scale: 1.2,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Obx(() {
+            return Row(
+              children: [
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () => homeController.changeSection('home'),
+                    child: Image.asset(
+                      'assets/icons/logo.png',
+                      scale: 2,
                       color: themeController.isDarkMode
                           ? Colors.white
                           : const Color.fromARGB(255, 139, 139, 139),
                     ),
-                    onPressed: () => Functions.launchURL(
-                        'https://www.linkedin.com/in/fady-saied-334b29218'),
                   ),
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/icons/gethub_dark.png',
-                      scale: 1.2,
-                      color: themeController.isDarkMode
-                          ? Colors.white
-                          : const Color.fromARGB(255, 139, 139, 139),
+                ),
+                SizedBox(width: size.width > 1200 ? 24 : 12),
+                if (size.width > 600) ...[
+                  _NavButton(
+                    label: 'About',
+                    onPressed: () => homeController.changeSection('about'),
+                  ),
+                  _NavButton(
+                    label: 'Projects',
+                    onPressed: () => homeController.changeSection('projects'),
+                  ),
+                  _NavButton(
+                    label: 'Tech Stack',
+                    onPressed: () => homeController.changeSection('tech stack'),
+                  ),
+                  _NavButton(
+                    label: 'Contact',
+                    onPressed: () => homeController.changeSection('contact'),
+                  ),
+                ] else
+                  CompositedTransformTarget(
+                    link: _layerLink,
+                    child: IconButton(
+                      icon: const Icon(Icons.menu),
+                      onPressed: () {
+                        if (_overlayEntry == null) {
+                          _showOverlay(context);
+                        } else {
+                          _removeOverlay();
+                        }
+                      },
                     ),
-                    onPressed: () =>
-                        Functions.launchURL('https://github.com/FadyElze3iky'),
                   ),
-                  Container(
-                    height: 20,
-                    width: .5,
-                    color: Colors.white,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
+              ],
+            );
+          }),
+          Obx(() {
+            return Row(
+              children: [
+                IconButton(
+                  icon: Image.asset(
+                    'assets/icons/linkedin_dark.png',
+                    scale: 1.2,
+                    color: themeController.isDarkMode
+                        ? Colors.white
+                        : const Color.fromARGB(255, 139, 139, 139),
                   ),
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/icons/sun_dark.png',
-                      scale: 1.2,
-                      color: themeController.isDarkMode
-                          ? Colors.white
-                          : const Color.fromARGB(255, 139, 139, 139),
-                    ),
-                    onPressed: () => themeController.toggleTheme(),
+                  onPressed: () => Functions.launchURL(
+                      'https://www.linkedin.com/in/fady-saied-334b29218'),
+                ),
+                IconButton(
+                  icon: Image.asset(
+                    'assets/icons/gethub_dark.png',
+                    scale: 1.2,
+                    color: themeController.isDarkMode
+                        ? Colors.white
+                        : const Color.fromARGB(255, 139, 139, 139),
                   ),
-                ],
-              );
-            }),
-          ],
-        ),
+                  onPressed: () =>
+                      Functions.launchURL('https://github.com/FadyElze3iky'),
+                ),
+                Container(
+                  height: 20,
+                  width: .5,
+                  color: Colors.white,
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                ),
+                IconButton(
+                  icon: Image.asset(
+                    'assets/icons/sun_dark.png',
+                    scale: 1.2,
+                    color: themeController.isDarkMode
+                        ? Colors.white
+                        : const Color.fromARGB(255, 139, 139, 139),
+                  ),
+                  onPressed: () => themeController.toggleTheme(),
+                ),
+              ],
+            );
+          }),
+        ],
       ),
     );
   }

@@ -17,7 +17,7 @@ class GetToKnowMeSection extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 32),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
               _InfoCard(

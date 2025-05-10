@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData get lightTheme {
     // Custom colors inspired by the light mode image
-    const background = Color(0xFFFAFAFA); // Very light gray
-    const card = Color(0xFFFFFFFF); // White for cards/containers
-    const border = Color(0xFFE5E5E5); // Soft light gray border
+    const background = Color(0xFFFBFBFB); // Very light gray
+    const card = Color(0xFFF6F6F6); // White for cards/containers
+    const border = Color(0xFFEBEBEB); // Soft light gray border
     const accent = Colors.black; // Black for primary accent
     const heading = Colors.black; // Main headings
     const subheading = Color(0xFF232323); // Subheadings
@@ -96,8 +96,8 @@ class AppTheme {
 
   static ThemeData get darkTheme {
     // Custom colors inspired by the image
-    const background = Color(0xFF18181B); // Deep black
-    const card = Color(0xFF23232B); // Slightly lighter for cards/containers
+    const background = Color(0xFF0D0D0D); // Deep black
+    const card = Color(0xFF181818); // Slightly lighter for cards/containers
     const border = Color(0xFF2A2A31); // Soft border
     const accent = Color(0xFFFF2566); // Neon pink/red accent
     const heading = Colors.white; // Main headings
