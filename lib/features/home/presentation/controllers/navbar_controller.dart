@@ -1,4 +1,4 @@
-import 'package:fadypotfolio/features/home/presentation/controllers/home_controller.dart';
+import 'package:fadyportfolio/features/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -51,6 +51,7 @@ class NavbarController extends GetxController {
                   _buildMenuItem(context, 'About', 'about'),
                   _buildMenuItem(context, 'Projects', 'projects'),
                   _buildMenuItem(context, 'Tech Stack', 'tech stack'),
+                  _buildMenuItem(context, 'Certificats', 'certificats'),
                   _buildMenuItem(context, 'Contact', 'contact'),
                 ],
               ),

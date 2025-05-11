@@ -52,7 +52,7 @@ class BlurredBackground extends StatelessWidget {
         imageFilter:
             ImageFilter.blur(sigmaX: 150, sigmaY: 150), // Adjust blur as needed
         child: CustomPaint(
-          size: Size(MediaQuery.of(context).size.width * .45, 100),
+          size: Size(MediaQuery.of(context).size.width * .8, 70),
           painter: HomeBackgroundPainter(),
         ),
       ),

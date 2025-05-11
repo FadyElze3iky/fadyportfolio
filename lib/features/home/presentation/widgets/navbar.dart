@@ -1,7 +1,7 @@
-import 'package:fadypotfolio/core/utils/functions.dart';
+import 'package:fadyportfolio/core/theme/theme_controller.dart';
+import 'package:fadyportfolio/core/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:fadypotfolio/core/theme/theme_controller.dart';
 import '../controllers/home_controller.dart';
 
 class Navbar extends StatefulWidget {
@@ -56,6 +56,7 @@ class _NavbarState extends State<Navbar> {
                   _buildMenuItem(context, 'About', 'about'),
                   _buildMenuItem(context, 'Projects', 'projects'),
                   _buildMenuItem(context, 'Tech Stack', 'tech stack'),
+                  _buildMenuItem(context, 'Certificats', 'certificats'),
                   _buildMenuItem(context, 'Contact', 'contact'),
                 ],
               ),
@@ -157,6 +158,11 @@ class _NavbarState extends State<Navbar> {
                   _NavButton(
                     label: 'Tech Stack',
                     onPressed: () => homeController.changeSection('tech stack'),
+                  ),
+                  _NavButton(
+                    label: 'Certificates',
+                    onPressed: () =>
+                        homeController.changeSection('certificates'),
                   ),
                   _NavButton(
                     label: 'Contact',

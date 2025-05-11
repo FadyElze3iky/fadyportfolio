@@ -1,4 +1,5 @@
-import 'package:fadypotfolio/core/theme/theme_controller.dart';
+import 'package:fadyportfolio/core/theme/theme_controller.dart';
+import 'package:fadyportfolio/features/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class ProjectsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isMobile = MediaQuery.of(context).size.width < 600;
+    final homeController = Get.find<HomeController>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
       child: Column(
@@ -63,9 +65,18 @@ class ProjectsSection extends StatelessWidget {
                     children: [
                       MouseRegion(
                         cursor: SystemMouseCursors.click,
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: Text('See all projects'),
+                        child: InkWell(
+                          onTap: () {
+                            homeController.changeSection('projects');
+                          },
+                          borderRadius: BorderRadius.circular(8),
+                          child: const Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                            child: Text(
+                              'See all projects',
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -180,22 +191,30 @@ class _ProjectCard extends StatelessWidget {
               const Spacer(flex: 1),
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                  onTap: onPressed,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.asset(
-                        'assets/icons/gethub_dark.png',
-                        scale: 1.2,
-                        color: themeController.isDarkMode
-                            ? Colors.white
-                            : const Color.fromARGB(255, 139, 139, 139),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: onPressed,
+                    borderRadius: BorderRadius.circular(8),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            'assets/icons/gethub_dark.png',
+                            scale: 1.2,
+                            color: themeController.isDarkMode
+                                ? Colors.white
+                                : const Color.fromARGB(255, 139, 139, 139),
+                          ),
+                          const SizedBox(width: 10),
+                          Text(detailsLabel),
+                          const SizedBox(width: 4),
+                        ],
                       ),
-                      const SizedBox(width: 10),
-                      Text(detailsLabel),
-                      const SizedBox(width: 4),
-                    ],
+                    ),
                   ),
                 ),
               ),

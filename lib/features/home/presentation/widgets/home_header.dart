@@ -1,4 +1,4 @@
-import 'package:fadypotfolio/features/home/presentation/widgets/header.dart';
+import 'package:fadyportfolio/features/home/presentation/widgets/header.dart';
 import 'package:flutter/material.dart';
 
 class HomeHeader extends StatelessWidget {

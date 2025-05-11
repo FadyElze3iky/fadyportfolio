@@ -5,5 +5,6 @@ abstract class Routes {
   static const ABOUT = '/about';
   static const PROJECTS = '/projects';
   static const TECH_STACK = '/tech-stack';
+  static const CERTIFICATES = '/certificates';
   static const CONTACT = '/contact';
 }

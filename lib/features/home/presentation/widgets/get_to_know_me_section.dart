@@ -151,7 +151,7 @@ class _InfoCard extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       width: isMobile ? MediaQuery.of(context).size.width * 0.85 : 350,
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: 300,
       padding: const EdgeInsets.only(
         top: 24,
       ),
