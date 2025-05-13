@@ -1,9 +1,11 @@
 class Profile {
-  final String bio;
-  final List<String> skills;
+  final String whatIDo1;
+  final String whatIDo2;
+  final String WhatIDid;
 
   Profile({
-    required this.bio,
-    required this.skills,
+    required this.whatIDo1,
+    required this.whatIDo2,
+    required this.WhatIDid,
   });
 }

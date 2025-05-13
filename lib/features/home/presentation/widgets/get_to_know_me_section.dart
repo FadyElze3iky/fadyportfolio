@@ -44,6 +44,7 @@ class GetToKnowMeSection extends StatelessWidget {
                 onPageChanged: (index) {
                   controller.onPageChanged(index);
                 },
+                clipBehavior: Clip.antiAliasWithSaveLayer,
                 scrollBehavior: ScrollConfiguration.of(context).copyWith(
                   dragDevices: {
                     PointerDeviceKind.touch,
@@ -56,6 +57,9 @@ class GetToKnowMeSection extends StatelessWidget {
                     description: 'Who I am and what I do.',
                     image: 'assets/images/fady_love.png',
                     isMobile: isMobile,
+                    onTap: () {
+                      homeController.changeSection('about');
+                    },
                   ),
                   _InfoCard(
                     title: 'Tech Stack',
@@ -63,12 +67,18 @@ class GetToKnowMeSection extends StatelessWidget {
                     image: 'assets/images/apps.png',
                     isStack: true,
                     isMobile: isMobile,
+                    onTap: () {
+                      homeController.changeSection('tech stack');
+                    },
                   ),
                   _InfoCard(
                     title: 'Certificates',
                     description: 'Certificates I have',
                     image: 'assets/images/certificate.png',
                     isMobile: isMobile,
+                    onTap: () {
+                      homeController.changeSection('certificates');
+                    },
                   ),
                 ],
               ),
@@ -82,6 +92,7 @@ class GetToKnowMeSection extends StatelessWidget {
                       width: 8,
                       height: 8,
                       margin: const EdgeInsets.symmetric(horizontal: 4),
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: controller.currentPage.value == index
@@ -212,6 +223,7 @@ class _InfoCard extends StatelessWidget {
                       Positioned.fill(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(24),
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
                           child: BlurredBackground(),
                         ),
                       ),

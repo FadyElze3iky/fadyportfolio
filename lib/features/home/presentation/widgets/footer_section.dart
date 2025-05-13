@@ -134,9 +134,9 @@ class FooterSection extends StatelessWidget {
                                   break;
                                 case 'LinkedIn':
                                   if (await canLaunchUrl(Uri.parse(
-                                      'https://www.linkedin.com/in/fady-saied-334b29218/'))) {
+                                      'https://www.linkedin.com/in/fady-saied-engineer/'))) {
                                     await launchUrl(Uri.parse(
-                                        'https://www.linkedin.com/in/fady-saied-334b29218/'));
+                                        'https://www.linkedin.com/in/fady-saied-engineer/'));
                                   }
                                   break;
                                 case 'GitHub':
@@ -249,9 +249,9 @@ class FooterSection extends StatelessWidget {
                                         break;
                                       case 'LinkedIn':
                                         if (await canLaunchUrl(Uri.parse(
-                                            'https://www.linkedin.com/in/fady-saied-334b29218/'))) {
+                                            'https://www.linkedin.com/in/fady-saied-engineer/'))) {
                                           await launchUrl(Uri.parse(
-                                              'https://www.linkedin.com/in/fady-saied-334b29218/'));
+                                              'https://www.linkedin.com/in/fady-saied-engineer/'));
                                         }
                                         break;
                                       case 'GitHub':

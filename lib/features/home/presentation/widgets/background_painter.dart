@@ -17,16 +17,20 @@ class HomeBackgroundPainter extends CustomPainter {
 
     // Light red blob
     final lightRedPaint = Paint()
-      ..color = const Color(0x6EE93F3F); // 43% opacity
+      ..color = const Color.fromARGB(155, 248, 172, 172); // 43% opacity
     canvas.drawCircle(
         Offset(size.width * 0.7, size.height * 0.5), 120, lightRedPaint);
 
     // Yellow blob
     final yellowPaint = Paint()
-      ..color = const Color.fromARGB(227, 5, 168, 73); // 43% opacity
+      ..color = const Color.fromARGB(247, 5, 168, 73); // 43% opacity
     canvas.drawCircle(
         Offset(size.width * 0.3, size.height * 0.7), 100, yellowPaint);
 
+    final yellowPaint2 = Paint()
+      ..color = const Color.fromARGB(247, 5, 168, 73); // 43% opacity
+    canvas.drawCircle(
+        Offset(size.width * 0.3, size.height * 0.7), 100, yellowPaint2);
     // Dark background overlay
     final darkPaint = Paint()
       ..color = const Color.fromARGB(159, 255, 11, 11); // 30% opacity

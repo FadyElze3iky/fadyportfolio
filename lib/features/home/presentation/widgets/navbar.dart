@@ -78,6 +78,7 @@ class _NavbarState extends State<Navbar> {
       return InkWell(
         onTap: () {
           controller.changeSection(section);
+          _removeOverlay();
         },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -196,7 +197,7 @@ class _NavbarState extends State<Navbar> {
                         : const Color.fromARGB(255, 139, 139, 139),
                   ),
                   onPressed: () => Functions.launchURL(
-                      'https://www.linkedin.com/in/fady-saied-334b29218'),
+                      'https://www.linkedin.com/in/fady-saied-engineer/'),
                 ),
                 IconButton(
                   icon: Image.asset(

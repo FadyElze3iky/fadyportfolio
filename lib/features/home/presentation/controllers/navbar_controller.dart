@@ -73,8 +73,9 @@ class NavbarController extends GetxController {
       final isActive = homeController.currentSection == section;
       return InkWell(
         onTap: () {
-          homeController.changeSection(section);
           _removeOverlay();
+          isMenuOpen.value = false;
+          homeController.changeSection(section);
         },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
