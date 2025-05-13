@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../controllers/contact_controller.dart';
 import '../../../../core/utils/functions.dart';
 
 class ContactSection extends StatelessWidget {
@@ -11,7 +9,7 @@ class ContactSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isMobile = MediaQuery.of(context).size.width < 600;
-    final contactController = Get.find<ContactController>();
+    // final contactController = Get.find<ContactController>();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),

@@ -11,9 +11,9 @@ class ProjectsScreen extends StatelessWidget {
     if (!Get.isRegistered<ProjectsController>()) {
       Get.put(ProjectsController());
     }
-    final projectsController = Get.find<ProjectsController>();
+    // final projectsController = Get.find<ProjectsController>();
 
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
         children: const [
           ProjectsSection(),

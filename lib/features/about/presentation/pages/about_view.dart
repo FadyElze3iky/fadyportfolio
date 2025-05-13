@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/layouts/base_layout.dart';
 import '../controllers/about_controller.dart';
 import '../../data/repositories/profile_repository_impl.dart';
 import '../../domain/repositories/profile_repository.dart';

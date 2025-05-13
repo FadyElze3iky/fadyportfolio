@@ -15,10 +15,9 @@ class BaseLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LayoutController());
-    final scrollController = ScrollController();
 
-    scrollController.addListener(() {
-      controller.onScroll(scrollController.position.pixels);
+    controller.scrollController.addListener(() {
+      controller.onScroll(controller.scrollController.position.pixels);
     });
 
     return Scaffold(
@@ -29,7 +28,7 @@ class BaseLayout extends StatelessWidget {
               BlurredBackground(),
               // Main content with scroll controller
               SingleChildScrollView(
-                controller: scrollController,
+                controller: controller.scrollController,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
                     minHeight: constraints.maxHeight,

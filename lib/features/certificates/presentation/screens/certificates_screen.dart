@@ -11,11 +11,11 @@ class CertificatesScreen extends StatelessWidget {
     if (!Get.isRegistered<CertificatesController>()) {
       Get.put(CertificatesController());
     }
-    final certificatesController = Get.find<CertificatesController>();
+    // final certificatesController = Get.find<CertificatesController>();
 
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
-        children: const [
+        children: [
           CertificatesSection(),
         ],
       ),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../controllers/tech_stack_controller.dart';
 
 class TechStackSection extends StatelessWidget {
   const TechStackSection({super.key});
@@ -9,7 +7,7 @@ class TechStackSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isMobile = MediaQuery.of(context).size.width < 600;
-    final techStackController = Get.find<TechStackController>();
+    // final techStackController = Get.find<TechStackController>();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),

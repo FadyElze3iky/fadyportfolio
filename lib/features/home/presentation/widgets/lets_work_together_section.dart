@@ -1,4 +1,6 @@
+import 'package:fadyportfolio/features/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LetsWorkTogetherSection extends StatelessWidget {
   const LetsWorkTogetherSection({super.key});
@@ -58,6 +60,7 @@ class LetsWorkTogetherSection extends StatelessWidget {
   }
 
   Widget _buildButton(ThemeData theme) {
+    final homeController = Get.find<HomeController>();
     return Container(
       width: 200,
       decoration: BoxDecoration(
@@ -95,7 +98,9 @@ class LetsWorkTogetherSection extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               borderRadius: BorderRadius.circular(16),
-              onTap: () {},
+              onTap: () {
+                homeController.changeSection('contact');
+              },
               hoverColor: const Color(0xFF101010),
               child: Padding(
                 padding:

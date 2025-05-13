@@ -11,9 +11,9 @@ class ContactScreen extends StatelessWidget {
     if (!Get.isRegistered<ContactController>()) {
       Get.put(ContactController());
     }
-    final contactController = Get.find<ContactController>();
+    // final contactController = Get.find<ContactController>();
 
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
         children: const [
           ContactSection(),

@@ -11,9 +11,9 @@ class TechStackScreen extends StatelessWidget {
     if (!Get.isRegistered<TechStackController>()) {
       Get.put(TechStackController());
     }
-    final techStackController = Get.find<TechStackController>();
+    // final techStackController = Get.find<TechStackController>();
 
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
         children: const [
           TechStackSection(),

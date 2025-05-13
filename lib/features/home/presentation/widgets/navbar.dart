@@ -78,7 +78,6 @@ class _NavbarState extends State<Navbar> {
       return InkWell(
         onTap: () {
           controller.changeSection(section);
-          _removeOverlay();
         },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),

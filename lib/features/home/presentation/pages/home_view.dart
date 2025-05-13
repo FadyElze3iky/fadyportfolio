@@ -1,4 +1,3 @@
-import 'package:fadyportfolio/features/about/presentation/bindings/about_binding.dart';
 import 'package:fadyportfolio/features/about/presentation/pages/about_view.dart';
 import 'package:fadyportfolio/features/certificates/presentation/screens/certificates_screen.dart';
 import 'package:fadyportfolio/features/contact/presentation/screens/contact_screen.dart';
@@ -21,31 +20,28 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return BaseLayout(
       child: Obx(() {
-        return SingleChildScrollView(
-          controller: controller.scrollController,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(height: 100), // Space for navbar
-              if (controller.currentSection == 'home') ...[
-                const HomeHeader(),
-                const ProjectsSection(),
-                const GetToKnowMeSection(),
-                const LetsWorkTogetherSection(),
-              ] else if (controller.currentSection == 'about') ...[
-                const AboutView(),
-              ] else if (controller.currentSection == 'projects') ...[
-                const ProjectsScreen(),
-              ] else if (controller.currentSection == 'tech stack') ...[
-                const TechStackScreen(),
-              ] else if (controller.currentSection == 'certificates') ...[
-                const CertificatesScreen()
-              ] else if (controller.currentSection == 'contact') ...[
-                const ContactScreen(),
-              ],
-              const FooterSection(),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: 100), // Space for navbar
+            if (controller.currentSection == 'home') ...[
+              const HomeHeader(),
+              const ProjectsSection(),
+              const GetToKnowMeSection(),
+              const LetsWorkTogetherSection(),
+            ] else if (controller.currentSection == 'about') ...[
+              const AboutView(),
+            ] else if (controller.currentSection == 'projects') ...[
+              const ProjectsScreen(),
+            ] else if (controller.currentSection == 'tech stack') ...[
+              const TechStackScreen(),
+            ] else if (controller.currentSection == 'certificates') ...[
+              const CertificatesScreen()
+            ] else if (controller.currentSection == 'contact') ...[
+              const ContactScreen(),
             ],
-          ),
+            const FooterSection(),
+          ],
         );
       }),
     );

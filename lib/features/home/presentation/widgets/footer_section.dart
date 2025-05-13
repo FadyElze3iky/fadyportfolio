@@ -319,13 +319,13 @@ class FooterSection extends StatelessWidget {
                         ),
                       ),
                 const SizedBox(height: 24),
+                BlurredBackground(),
                 Text(
                   '© ${DateTime.now().year} Fady Saied. All Rights Reserved.',
                   style: theme.textTheme.bodySmall?.copyWith(
                       color:
                           theme.textTheme.bodySmall?.color?.withOpacity(0.5)),
                 ),
-                BlurredBackground()
               ],
             ),
           ),
