@@ -1,32 +1,36 @@
 import 'package:fadyportfolio/core/theme/theme_controller.dart';
+import 'package:fadyportfolio/features/home/presentation/controllers/project_card_controller.dart';
+import 'package:fadyportfolio/features/projects/presentation/widgets/screens_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/animation.dart';
 
 class ProjectCard extends StatelessWidget {
   final String cardId;
   final String title;
   final String description;
-  final String image;
+  final List<String> images;
   final String icon;
   final String detailsLabel;
   final Function()? onPressed;
   final bool isMobile;
+  final String slogan;
 
   const ProjectCard({
     super.key,
     required this.cardId,
     required this.title,
     required this.description,
-    required this.image,
+    required this.images,
     required this.icon,
     required this.detailsLabel,
     required this.onPressed,
     required this.isMobile,
+    required this.slogan,
   });
 
   @override
   Widget build(BuildContext context) {
-    print(image);
     final themeController = Get.find<ThemeController>();
     final theme = Theme.of(context);
 
@@ -48,6 +52,16 @@ class ProjectCard extends StatelessWidget {
         ],
       ),
       child: Stack(children: [
+        Positioned(
+          right: 0,
+          child: SizedBox(
+            width: 600,
+            child: ScreensAnimation(
+              images: images,
+              projectId: cardId,
+            ),
+          ),
+        ),
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: isMobile ? 20.0 : 40.0,
@@ -56,12 +70,15 @@ class ProjectCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.network(icon, scale: isMobile ? 6 : 4),
+              Image.network(
+                icon,
+                scale: isMobile ? 4 : 2,
+              ),
               const SizedBox(height: 16),
               SizedBox(
                 width: isMobile ? double.infinity : 400,
                 child: Text(
-                  title,
+                  "$title -- $slogan",
                   style: theme.textTheme.headlineMedium
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
@@ -109,6 +126,9 @@ class ProjectCard extends StatelessWidget {
                           Image.asset(
                             'assets/icons/gethub_dark.png',
                             scale: 1.2,
+                            color: themeController.isDarkMode
+                                ? Colors.white
+                                : const Color.fromARGB(255, 139, 139, 139),
                           ),
                           const SizedBox(width: 10),
                           Text(detailsLabel),

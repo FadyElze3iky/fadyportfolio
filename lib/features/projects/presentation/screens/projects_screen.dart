@@ -27,14 +27,14 @@ class ProjectsScreen extends StatelessWidget {
         child: Column(
           children: projectsController.projects
               .map((project) => ProjectCard(
+                    slogan: project.slogan,
                     cardId: project.appName,
                     onPressed: () {
                       Functions.launchURL(project.github);
                     },
                     title: project.appName,
                     description: project.description,
-                    image:
-                        project.screens.isNotEmpty ? project.screens.first : '',
+                    images: project.screens.isNotEmpty ? project.screens : [],
                     icon: project.logo,
                     detailsLabel: 'More Details',
                     isMobile: isMobile,
