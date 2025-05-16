@@ -14,6 +14,7 @@ class ProjectsScreen extends StatelessWidget {
         Get.find<ProjectsController>();
 
     final isMobile = MediaQuery.of(context).size.width < 600;
+    final theme = Theme.of(context);
 
     return Obx(() {
       if (projectsController.isLoading.value) {
@@ -25,21 +26,44 @@ class ProjectsScreen extends StatelessWidget {
       }
       return SingleChildScrollView(
         child: Column(
-          children: projectsController.projects
-              .map((project) => ProjectCard(
-                    slogan: project.slogan,
-                    cardId: project.appName,
-                    onPressed: () {
-                      Functions.launchURL(project.github);
-                    },
-                    title: project.appName,
-                    description: project.description,
-                    images: project.screens.isNotEmpty ? project.screens : [],
-                    icon: project.logo,
-                    detailsLabel: 'More Details',
-                    isMobile: isMobile,
-                  ))
-              .toList(),
+          children: [
+            const SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: isMobile
+                  ? MediaQuery.of(context).size.width * 0.9
+                  : MediaQuery.of(context).size.width * 0.7,
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                Text(
+                  'PROJECTS',
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ]),
+            ),
+            const SizedBox(height: 20),
+            Column(
+              children: projectsController.projects
+                  .map((project) => ProjectCard(
+                        isvertical: project.vertical,
+                        slogan: project.slogan,
+                        cardId: project.appName,
+                        onPressed: () {
+                          Functions.launchURL(project.github);
+                        },
+                        title: project.appName,
+                        description: project.description,
+                        images:
+                            project.screens.isNotEmpty ? project.screens : [],
+                        icon: project.logo,
+                        detailsLabel: 'More Details',
+                        isMobile: isMobile,
+                      ))
+                  .toList(),
+            ),
+          ],
         ),
       );
     });

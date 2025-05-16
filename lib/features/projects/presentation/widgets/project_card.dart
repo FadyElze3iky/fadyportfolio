@@ -15,6 +15,7 @@ class ProjectCard extends StatelessWidget {
   final Function()? onPressed;
   final bool isMobile;
   final String slogan;
+  final bool isvertical;
 
   const ProjectCard({
     super.key,
@@ -27,6 +28,7 @@ class ProjectCard extends StatelessWidget {
     required this.onPressed,
     required this.isMobile,
     required this.slogan,
+    required this.isvertical,
   });
 
   @override
@@ -38,7 +40,9 @@ class ProjectCard extends StatelessWidget {
       width:
           isMobile ? double.infinity : MediaQuery.of(context).size.width * 0.7,
       height: isMobile ? 470 : 600,
-      margin: isMobile ? const EdgeInsets.symmetric(horizontal: 16) : null,
+      margin: isMobile
+          ? const EdgeInsets.symmetric(vertical: 20)
+          : const EdgeInsets.symmetric(vertical: 25),
       decoration: BoxDecoration(
         color: theme.cardColor,
         borderRadius: BorderRadius.circular(24),
@@ -53,10 +57,12 @@ class ProjectCard extends StatelessWidget {
       ),
       child: Stack(children: [
         Positioned(
-          right: 0,
+          right: 10,
           child: SizedBox(
-            width: 600,
+            width: 500,
             child: ScreensAnimation(
+              isMobile: isMobile,
+              isvertical: isvertical,
               images: images,
               projectId: cardId,
             ),

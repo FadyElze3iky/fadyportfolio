@@ -49,20 +49,6 @@ class ProjectsSection extends StatelessWidget {
                 detailsLabel: 'More Details',
                 isMobile: isMobile,
               ),
-              const SizedBox(height: 32),
-              _ProjectCard(
-                cardId: 'card2',
-                onPressed: () {
-                  Functions.launchURL('https://github.com/FadyElze3iky/x-fit');
-                },
-                title: 'X-FIT — Smart Diet Tracking App',
-                description:
-                    'XFit is a smart diet tracking app that helps users monitor their daily food intake in grams and instantly calculates the nutritional content of each meal. Designed for simplicity and accuracy, XFit empowers users to stay on top of their fitness goals with real-time progress tracking and a clean, intuitive interface.',
-                image: 'assets/images/xfit_screen0.png',
-                icon: 'assets/images/xfit_logo.png',
-                detailsLabel: 'More Details',
-                isMobile: isMobile,
-              ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: SizedBox(
