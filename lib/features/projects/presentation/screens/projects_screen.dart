@@ -1,4 +1,5 @@
-import 'package:fadyportfolio/features/home/presentation/widgets/projects_section.dart';
+import 'package:fadyportfolio/core/utils/functions.dart';
+import 'package:fadyportfolio/features/projects/presentation/widgets/project_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/projects_controller.dart';
@@ -8,17 +9,39 @@ class ProjectsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!Get.isRegistered<ProjectsController>()) {
-      Get.put(ProjectsController());
-    }
-    // final projectsController = Get.find<ProjectsController>();
+    Get.lazyPut(() => ProjectsController());
+    final ProjectsController projectsController =
+        Get.find<ProjectsController>();
 
-    return const SingleChildScrollView(
-      child: Column(
-        children: const [
-          ProjectsSection(),
-        ],
-      ),
-    );
+    final isMobile = MediaQuery.of(context).size.width < 600;
+
+    return Obx(() {
+      if (projectsController.isLoading.value) {
+        return const Center(child: CircularProgressIndicator());
+      }
+      if (projectsController.error.value.isNotEmpty) {
+        return Center(
+            child: Text('Error: \\${projectsController.error.value}'));
+      }
+      return SingleChildScrollView(
+        child: Column(
+          children: projectsController.projects
+              .map((project) => ProjectCard(
+                    cardId: project.appName,
+                    onPressed: () {
+                      Functions.launchURL(project.github);
+                    },
+                    title: project.appName,
+                    description: project.description,
+                    image:
+                        project.screens.isNotEmpty ? project.screens.first : '',
+                    icon: project.logo,
+                    detailsLabel: 'More Details',
+                    isMobile: isMobile,
+                  ))
+              .toList(),
+        ),
+      );
+    });
   }
 }

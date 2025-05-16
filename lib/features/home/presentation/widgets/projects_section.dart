@@ -2,6 +2,7 @@ import 'package:fadyportfolio/core/theme/theme_controller.dart';
 import 'package:fadyportfolio/core/utils/functions.dart';
 import 'package:fadyportfolio/features/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart' show SvgPicture;
 import 'package:get/get.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:fadyportfolio/features/home/presentation/controllers/project_card_controller.dart';

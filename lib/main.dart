@@ -1,8 +1,9 @@
 import 'package:fadyportfolio/core/secure/keys.dart';
+import 'package:fadyportfolio/features/home/presentation/bindings/home_binding.dart';
+import 'package:fadyportfolio/features/home/presentation/pages/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'core/routes/app_pages.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_controller.dart';
 import 'package:device_preview/device_preview.dart';
@@ -39,8 +40,14 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
+      initialRoute: '/home',
+      getPages: [
+        GetPage(
+          name: '/home',
+          page: () => const HomeView(),
+          binding: HomeBinding(),
+        )
+      ],
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
