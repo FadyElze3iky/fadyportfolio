@@ -47,7 +47,13 @@ class _ScreensAnimationState extends State<ScreensAnimation> {
           final projectImages = controller.getProjectScreens(widget.projectId);
           if (projectImages.isEmpty) return const SizedBox();
 
-          int columns = widget.images.length > 4 ? 3 : 2;
+          int columns = !widget.isvertical
+              ? 2
+              : widget.isMobile
+                  ? 3
+                  : widget.images.length > 4
+                      ? 3
+                      : 2;
           int rows = 3;
           final animation = controller.getAnimation(widget.projectId);
           if (animation == null) return const SizedBox();
@@ -61,32 +67,30 @@ class _ScreensAnimationState extends State<ScreensAnimation> {
                   child: AnimatedBuilder(
                     animation: animation,
                     builder: (context, child) {
-                      return ClipRRect(
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.max,
-                          children: List.generate(rows, (rowIdx) {
-                            int imgIdx =
-                                (colIdx * rows + rowIdx) % projectImages.length;
-                            double offset =
-                                animation.value * 50 * (down ? 1 : -1);
-                            return Transform.translate(
-                              offset: Offset(0, offset),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: !widget.isvertical ? 8 : 0,
-                                    vertical: !widget.isvertical ? 6 : 0),
-                                child: Image.network(
-                                  projectImages[imgIdx],
-                                  fit: BoxFit.cover,
-                                  scale: !widget.isvertical ? 1.2 : 0.8,
-                                ),
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: List.generate(rows, (rowIdx) {
+                          int imgIdx =
+                              (colIdx * rows + rowIdx) % projectImages.length;
+                          double offset = !widget.isMobile
+                              ? animation.value * 50 * (down ? 1 : -1)
+                              : animation.value * 20 * (down ? 1 : -1);
+                          return Transform.translate(
+                            offset: Offset(0, offset),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: !widget.isvertical ? 8 : 0,
+                                  vertical: !widget.isvertical ? 12 : 0),
+                              child: Image.network(
+                                projectImages[imgIdx],
+                                fit: BoxFit.cover,
+                                scale: !widget.isvertical ? 1.2 : 0.8,
                               ),
-                            );
-                          }),
-                        ),
+                            ),
+                          );
+                        }),
                       );
                     },
                   ),

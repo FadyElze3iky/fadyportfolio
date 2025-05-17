@@ -65,7 +65,6 @@ class ScreensAnimationController extends GetxController
 
   void setProjectScreens(String projectId, List<String> screens) {
     projectScreens[projectId] = screens;
-    print('${screens.length} screen');
     columns.value = screens.length >= 4 ? 3 : 2;
     update(); // Notify listeners of the change
   }

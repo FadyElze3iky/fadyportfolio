@@ -2,6 +2,7 @@ import 'package:fadyportfolio/core/utils/functions.dart';
 import 'package:fadyportfolio/features/projects/presentation/widgets/project_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 import '../controllers/projects_controller.dart';
 
 class ProjectsScreen extends StatelessWidget {
@@ -18,7 +19,53 @@ class ProjectsScreen extends StatelessWidget {
 
     return Obx(() {
       if (projectsController.isLoading.value) {
-        return const Center(child: CircularProgressIndicator());
+        return Column(
+          children: [
+            const SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: isMobile
+                  ? MediaQuery.of(context).size.width * 0.9
+                  : MediaQuery.of(context).size.width * 0.7,
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                Text(
+                  'PROJECTS',
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ]),
+            ),
+            const SizedBox(width: 20),
+            Shimmer.fromColors(
+              baseColor: theme.cardColor,
+              highlightColor: theme.cardColor.withOpacity(.2),
+              child: Container(
+                width: isMobile
+                    ? double.infinity
+                    : MediaQuery.of(context).size.width * 0.7,
+                height: isMobile ? 470 : 600,
+                margin: isMobile
+                    ? const EdgeInsets.symmetric(vertical: 20, horizontal: 12)
+                    : const EdgeInsets.symmetric(vertical: 25),
+                decoration: BoxDecoration(
+                  color: theme.cardColor,
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(color: theme.dividerColor, width: 1.5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: theme.cardColor.withOpacity(0.08),
+                      blurRadius: 16,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        );
       }
       if (projectsController.error.value.isNotEmpty) {
         return Center(

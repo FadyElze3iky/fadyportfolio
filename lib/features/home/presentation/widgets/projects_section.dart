@@ -128,7 +128,6 @@ class _ProjectCard extends StatelessWidget {
             ? double.infinity
             : MediaQuery.of(context).size.width * 0.7,
         height: isMobile ? 470 : 600,
-        margin: isMobile ? const EdgeInsets.symmetric(horizontal: 16) : null,
         decoration: BoxDecoration(
           color: theme.cardColor,
           borderRadius: BorderRadius.circular(24),
