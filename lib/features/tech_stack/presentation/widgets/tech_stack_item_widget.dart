@@ -7,12 +7,14 @@ class TechStackItemWidget extends StatefulWidget {
   final String type;
   final String iconUrl;
   final String url;
+  final bool isMobile;
 
   const TechStackItemWidget({
     required this.name,
     required this.type,
     required this.iconUrl,
     required this.url,
+    this.isMobile = false,
     super.key,
   });
 
@@ -76,78 +78,134 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                 Functions.launchURL(widget.url);
               },
               child: Container(
-                height: 200,
-                width: 200,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                decoration: BoxDecoration(
-                  color: theme.cardColor,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                    color: theme.dividerColor,
-                    width: _isHovered ? 2 : 1.5,
+                  height: 200,
+                  width: widget.isMobile ? double.infinity : 200,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  decoration: BoxDecoration(
+                    color: theme.cardColor,
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(
+                      color: theme.dividerColor,
+                      width: _isHovered ? 2 : 1.5,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color:
+                            theme.cardColor.withOpacity(_shadowAnimation.value),
+                        blurRadius: 16,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color:
-                          theme.cardColor.withOpacity(_shadowAnimation.value),
-                      blurRadius: 16,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
-                ),
-                child: Stack(
-                  children: [
-                    if (_isHovered)
-                      Positioned.fill(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(24),
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: const BlurredBackground(),
+                  child: Stack(
+                    children: [
+                      if (_isHovered)
+                        Positioned.fill(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(24),
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            child: const BlurredBackground(),
+                          ),
                         ),
-                      ),
-                    Align(
-                      child: Image.network(
-                        widget.iconUrl,
-                        scale: 2.2,
-                        errorBuilder: (_, __, ___) =>
-                            const Icon(Icons.broken_image, size: 48),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(widget.name,
-                                style: theme.textTheme.bodyLarge!.copyWith(
-                                    color: theme.hoverColor,
-                                    overflow: TextOverflow.ellipsis,
-                                    fontWeight: FontWeight.normal)),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 8),
-                              decoration: BoxDecoration(
-                                color: theme.cardColor,
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                    color: theme.dividerColor, width: 1.5),
-                              ),
-                              child: Text(widget.type,
-                                  style: theme.textTheme.bodySmall?.copyWith(
-                                    color: Colors.grey,
-                                    overflow: TextOverflow.ellipsis,
-                                  )),
+                      if (!widget.isMobile) ...[
+                        Align(
+                          child: Image.network(
+                            widget.iconUrl,
+                            scale: 2.2,
+                            errorBuilder: (_, __, ___) =>
+                                const Icon(Icons.broken_image, size: 48),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(widget.name,
+                                    style: theme.textTheme.bodyLarge!.copyWith(
+                                        color: theme.hoverColor,
+                                        overflow: TextOverflow.ellipsis,
+                                        fontWeight: FontWeight.normal)),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 8),
+                                  decoration: BoxDecoration(
+                                    color: theme.cardColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                        color: theme.dividerColor, width: 1.5),
+                                  ),
+                                  child: Text(widget.type,
+                                      style:
+                                          theme.textTheme.bodySmall?.copyWith(
+                                        color: Colors.grey,
+                                        overflow: TextOverflow.ellipsis,
+                                      )),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
+                        )
+                      ] else ...[
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 30, right: 20),
+                            child: Row(
+                              children: [
+                                if (_isHovered)
+                                  Positioned.fill(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(24),
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      child: const BlurredBackground(),
+                                    ),
+                                  ),
+                                Image.network(
+                                  widget.iconUrl,
+                                  scale: 3,
+                                  errorBuilder: (_, __, ___) =>
+                                      const Icon(Icons.broken_image, size: 48),
+                                ),
+                                const SizedBox(
+                                  width: 30,
+                                ),
+                                Text(
+                                  widget.name,
+                                  style: theme.textTheme.bodyLarge!.copyWith(
+                                      color: theme.hoverColor,
+                                      overflow: TextOverflow.ellipsis,
+                                      fontWeight: FontWeight.normal),
+                                ),
+                                const Spacer(
+                                  flex: 1,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 8),
+                                  decoration: BoxDecoration(
+                                    color: theme.cardColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                        color: theme.dividerColor, width: 1.5),
+                                  ),
+                                  child: Text(widget.type,
+                                      style:
+                                          theme.textTheme.bodySmall?.copyWith(
+                                        color: Colors.grey,
+                                        overflow: TextOverflow.ellipsis,
+                                      )),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+                      ]
+                    ],
+                  )),
             ),
           );
         },

@@ -4,7 +4,8 @@ class AppTheme {
   static ThemeData get lightTheme {
     // Custom colors inspired by the light mode image
     const background = Color(0xFFFBFBFB); // Very light gray
-    const card = Color(0xFFF6F6F6); // White for cards/containers
+    const card =
+        Color.fromARGB(255, 219, 219, 219); // White for cards/containers
     const border = Color(0xFFEBEBEB); // Soft light gray border
     const accent = Colors.black; // Black for primary accent
     const heading = Colors.black; // Main headings

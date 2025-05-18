@@ -19,9 +19,7 @@ class TechStackScreen extends StatelessWidget {
       Get.put(TechStackController(
           FetchTechStack(TechStackRepositoryImpl(FirebaseFirestore.instance))));
     }
-    if (!Get.isRegistered<TickerProvider>()) {
-      Get.put(TickerProvider);
-    }
+
     final techStackController = Get.find<TechStackController>();
 
     return SingleChildScrollView(
@@ -74,32 +72,37 @@ class TechStackScreen extends StatelessWidget {
                   child: Text('Error: \\${techStackController.error}'));
             }
             final items = techStackController.techStack;
-            if (!isMobile) {
-              return SizedBox(
-                width: MediaQuery.of(context).size.width * 0.7,
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: isMedium ? 2 : 3,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15,
-                    childAspectRatio: 1,
-                  ),
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    final item = items[index];
-                    return TechStackItemWidget(
-                      url: item.url,
-                      name: item.name,
-                      type: item.type,
-                      iconUrl: item.icon,
-                    );
-                  },
+
+            return SizedBox(
+              width: isMobile
+                  ? MediaQuery.of(context).size.width * 0.9
+                  : MediaQuery.of(context).size.width * 0.7,
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: isMobile
+                      ? 1
+                      : isMedium
+                          ? 2
+                          : 3,
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 15,
+                  childAspectRatio: isMobile ? 3 : 1,
                 ),
-              );
-            }
-            return SizedBox();
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  return TechStackItemWidget(
+                    isMobile: isMobile,
+                    url: item.url,
+                    name: item.name,
+                    type: item.type,
+                    iconUrl: item.icon,
+                  );
+                },
+              ),
+            );
           }),
         ],
       ),
