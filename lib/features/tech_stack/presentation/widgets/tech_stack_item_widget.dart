@@ -153,7 +153,7 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                         Align(
                           alignment: Alignment.center,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 30, right: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Row(
                               children: [
                                 if (_isHovered)
@@ -171,15 +171,25 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                                       const Icon(Icons.broken_image, size: 48),
                                 ),
                                 const SizedBox(
-                                  width: 30,
+                                  width: 10,
                                 ),
-                                Text(
-                                  widget.name,
-                                  style: theme.textTheme.bodyLarge!.copyWith(
-                                      color: theme.hoverColor,
-                                      overflow: TextOverflow.ellipsis,
-                                      fontWeight: FontWeight.normal),
-                                ),
+                                !widget.isMobile
+                                    ? Text(
+                                        widget.name,
+                                        style: theme.textTheme.bodyLarge!
+                                            .copyWith(
+                                                color: theme.hoverColor,
+                                                overflow: TextOverflow.ellipsis,
+                                                fontWeight: FontWeight.normal),
+                                      )
+                                    : Text(
+                                        widget.name,
+                                        style: theme.textTheme.bodyMedium!
+                                            .copyWith(
+                                                color: theme.hoverColor,
+                                                overflow: TextOverflow.ellipsis,
+                                                fontWeight: FontWeight.normal),
+                                      ),
                                 const Spacer(
                                   flex: 1,
                                 ),
