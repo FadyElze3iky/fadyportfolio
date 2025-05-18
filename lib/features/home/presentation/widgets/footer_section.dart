@@ -14,7 +14,7 @@ class FooterSection extends StatelessWidget {
     final theme = Theme.of(context);
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isSmallScreen = constraints.maxWidth < 600;
+        final isSmallScreen = constraints.maxWidth < 655;
         final homeController = Get.find<HomeController>();
         return SizedBox(
           width: double.infinity,

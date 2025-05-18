@@ -8,7 +8,7 @@ class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isMobile = MediaQuery.of(context).size.width < 600;
+    final isMobile = MediaQuery.of(context).size.width < 655;
     // final contactController = Get.find<ContactController>();
 
     return Padding(

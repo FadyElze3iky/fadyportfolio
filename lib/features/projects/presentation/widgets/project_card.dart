@@ -17,7 +17,7 @@ class ProjectCard extends StatelessWidget {
   final bool isMobile;
   final String slogan;
   final bool isvertical;
-
+  final bool isHaveGitHub;
   const ProjectCard({
     super.key,
     required this.cardId,
@@ -30,6 +30,7 @@ class ProjectCard extends StatelessWidget {
     required this.isMobile,
     required this.slogan,
     required this.isvertical,
+    required this.isHaveGitHub,
   });
 
   @override
@@ -109,35 +110,42 @@ class ProjectCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: onPressed,
-                        borderRadius: BorderRadius.circular(8),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 4),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image.asset(
-                                'assets/icons/gethub_dark.png',
-                                scale: 1.2,
-                                color: themeController.isDarkMode
-                                    ? Colors.white
-                                    : const Color.fromARGB(255, 139, 139, 139),
-                              ),
-                              const SizedBox(width: 10),
-                              Text(detailsLabel),
-                              const SizedBox(width: 4),
-                            ],
+                  if (isHaveGitHub)
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: onPressed,
+                          borderRadius: BorderRadius.circular(8),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.asset(
+                                  'assets/icons/gethub_dark.png',
+                                  scale: 1.2,
+                                  color: themeController.isDarkMode
+                                      ? Colors.white
+                                      : const Color.fromARGB(
+                                          255, 139, 139, 139),
+                                ),
+                                const SizedBox(width: 10),
+                                Text(detailsLabel),
+                                const SizedBox(width: 4),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
+                  if (!isHaveGitHub)
+                    Text(
+                      'Still under development',
+                      style: theme.textTheme.bodyMedium,
+                    ),
 
                   // Animation/images at the bottom
                 ],
@@ -217,35 +225,41 @@ class ProjectCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 const Spacer(flex: 1),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: onPressed,
-                      borderRadius: BorderRadius.circular(8),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Image.asset(
-                              'assets/icons/gethub_dark.png',
-                              scale: 1.2,
-                              color: themeController.isDarkMode
-                                  ? Colors.white
-                                  : const Color.fromARGB(255, 139, 139, 139),
-                            ),
-                            const SizedBox(width: 10),
-                            Text(detailsLabel),
-                            const SizedBox(width: 4),
-                          ],
+                if (isHaveGitHub)
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: onPressed,
+                        borderRadius: BorderRadius.circular(8),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset(
+                                'assets/icons/gethub_dark.png',
+                                scale: 1.2,
+                                color: themeController.isDarkMode
+                                    ? Colors.white
+                                    : const Color.fromARGB(255, 139, 139, 139),
+                              ),
+                              const SizedBox(width: 10),
+                              Text(detailsLabel),
+                              const SizedBox(width: 4),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
+                if (!isHaveGitHub)
+                  Text(
+                    'Still under development',
+                    style: theme.textTheme.bodyMedium,
+                  ),
               ],
             ),
           ),

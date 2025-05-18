@@ -146,7 +146,7 @@ class _NavbarState extends State<Navbar> {
                   ),
                 ),
                 SizedBox(width: size.width > 1200 ? 24 : 12),
-                if (size.width > 600) ...[
+                if (size.width > 655) ...[
                   _NavButton(
                     label: 'About',
                     onPressed: () => homeController.changeSection('about'),

@@ -16,7 +16,7 @@ class GetToKnowMeSection extends StatelessWidget {
     final homeController = Get.find<HomeController>();
 
     final theme = Theme.of(context);
-    final isMobile = MediaQuery.of(context).size.width < 600;
+    final isMobile = MediaQuery.of(context).size.width < 655;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
       child: Column(
@@ -128,7 +128,7 @@ class GetToKnowMeSection extends StatelessWidget {
                     const SizedBox(width: 24),
                     _InfoCard(
                       title: 'Tech Stack',
-                      description: 'The dev tools, apps and devices I use.',
+                      description: 'The dev & design tools I use.',
                       image: 'assets/images/apps.png',
                       isStack: true,
                       isMobile: isMobile,

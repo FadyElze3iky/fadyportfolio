@@ -14,7 +14,7 @@ class ProjectsScreen extends StatelessWidget {
     final ProjectsController projectsController =
         Get.find<ProjectsController>();
 
-    final isMobile = MediaQuery.of(context).size.width < 600;
+    final isMobile = MediaQuery.of(context).size.width < 655;
     final theme = Theme.of(context);
 
     return Obx(() {
@@ -29,15 +29,36 @@ class ProjectsScreen extends StatelessWidget {
                   ? MediaQuery.of(context).size.width * 0.9
                   : MediaQuery.of(context).size.width * 0.7,
               child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                Text(
-                  'PROJECTS',
-                  style: theme.textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Projects',
+                      style: theme.textTheme.headlineLarge?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      'Projects and ideas I’ve worked on',
+                      style: theme.textTheme.bodyMedium,
+                    ),
+                  ],
                 ),
               ]),
             ),
-            const SizedBox(width: 20),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22),
+              child: Divider(
+                color: theme.dividerColor,
+                thickness: 1,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Shimmer.fromColors(
               baseColor: theme.cardColor,
               highlightColor: theme.cardColor.withOpacity(.2),
@@ -82,21 +103,43 @@ class ProjectsScreen extends StatelessWidget {
                   ? MediaQuery.of(context).size.width * 0.9
                   : MediaQuery.of(context).size.width * 0.7,
               child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                Text(
-                  'PROJECTS',
-                  style: theme.textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Projects',
+                      style: theme.textTheme.headlineLarge?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      'Projects and ideas I’ve worked on',
+                      style: theme.textTheme.bodyMedium,
+                    ),
+                  ],
                 ),
               ]),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22),
+              child: Divider(
+                color: theme.dividerColor,
+                thickness: 1,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Column(
               children: projectsController.projects
                   .map((project) => ProjectCard(
                         isvertical: project.vertical,
                         slogan: project.slogan,
                         cardId: project.appName,
+                        isHaveGitHub: project.github.isNotEmpty,
                         onPressed: () {
                           Functions.launchURL(project.github);
                         },
