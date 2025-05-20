@@ -1,5 +1,4 @@
 import 'package:fadyportfolio/core/secure/keys.dart';
-import 'package:fadyportfolio/features/home/presentation/bindings/home_binding.dart';
 import 'package:fadyportfolio/features/home/presentation/pages/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +23,7 @@ void main() async {
 
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const MyApp(),
     ),
   );
@@ -40,18 +39,11 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
-      initialRoute: '/home',
-      getPages: [
-        GetPage(
-          name: '/home',
-          page: () => const HomeView(),
-          binding: HomeBinding(),
-        )
-      ],
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       useInheritedMediaQuery: true,
+      home: const HomeView(),
     );
   }
 }

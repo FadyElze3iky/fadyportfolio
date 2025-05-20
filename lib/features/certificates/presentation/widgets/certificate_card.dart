@@ -65,7 +65,13 @@ class _CertificateCardState extends State<CertificateCard>
       onEnter: (_) => _handleHover(true),
       onExit: (_) => _handleHover(false),
       child: GestureDetector(
-        onTap: () => Functions.launchURL(widget.url),
+        onTap: () {
+          _handleHover(true);
+          Future.delayed(const Duration(milliseconds: 200), () {
+            _handleHover(false);
+          });
+          Functions.launchURL(widget.url);
+        },
         child: AnimatedBuilder(
           animation: _animationController,
           builder: (context, child) {

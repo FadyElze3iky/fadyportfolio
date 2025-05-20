@@ -18,6 +18,8 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => HomeController());
+
     return BaseLayout(
       child: Obx(() {
         return Column(

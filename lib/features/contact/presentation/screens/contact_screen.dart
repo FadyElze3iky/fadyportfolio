@@ -11,12 +11,67 @@ class ContactScreen extends StatelessWidget {
     if (!Get.isRegistered<ContactController>()) {
       Get.put(ContactController());
     }
+
+    final isMobile = MediaQuery.of(context).size.width < 655;
+    final theme = Theme.of(context);
     // final contactController = Get.find<ContactController>();
 
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
-        children: const [
-          ContactSection(),
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          SizedBox(
+            width: isMobile
+                ? MediaQuery.of(context).size.width * 0.9
+                : MediaQuery.of(context).size.width * 0.7,
+            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  isMobile
+                      ? Text(
+                          'Get in\ntouch',
+                          style: theme.textTheme.headlineLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      : Text(
+                          'Get in touch',
+                          style: theme.textTheme.headlineLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                  Text(
+                    'Let’s build something awesome.',
+                    style: theme.textTheme.bodyMedium,
+                  ),
+                ],
+              ),
+            ]),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: isMobile
+                ? MediaQuery.of(context).size.width * 0.9
+                : MediaQuery.of(context).size.width * 0.7,
+            child: Divider(
+              color: theme.colorScheme.onSurface.withOpacity(0.1),
+              thickness: 1,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: isMobile
+                ? MediaQuery.of(context).size.width * 0.9
+                : MediaQuery.of(context).size.width * 0.7,
+            child: const ContactFormSection(),
+          ),
         ],
       ),
     );

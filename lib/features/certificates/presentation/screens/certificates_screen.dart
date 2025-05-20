@@ -28,13 +28,20 @@ class CertificatesScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Certificates',
-                    style: theme.textTheme.headlineLarge?.copyWith(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 60,
-                    ),
-                  ),
+                  isMobile
+                      ? Text(
+                          'Certificates',
+                          style: theme.textTheme.headlineLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 60,
+                          ),
+                        )
+                      : Text(
+                          'Certificates',
+                          style: theme.textTheme.headlineLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                   Text(
                     'Certificates I have earned',
                     style: theme.textTheme.bodyMedium,
@@ -46,10 +53,12 @@ class CertificatesScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
+          SizedBox(
+            width: isMobile
+                ? MediaQuery.of(context).size.width * 0.9
+                : MediaQuery.of(context).size.width * 0.7,
             child: Divider(
-              color: theme.dividerColor,
+              color: theme.colorScheme.onSurface.withOpacity(0.1),
               thickness: 1,
             ),
           ),

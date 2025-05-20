@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fadyportfolio/core/layouts/base_layout.dart';
 import 'package:fadyportfolio/features/tech_stack/data/repositories/tech_stack_repository_impl.dart';
 import 'package:fadyportfolio/features/tech_stack/domain/usecases/fetch_tech_stack.dart';
 import 'package:flutter/material.dart';
@@ -61,10 +62,12 @@ class TechStackScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
+          SizedBox(
+            width: isMobile
+                ? MediaQuery.of(context).size.width * 0.9
+                : MediaQuery.of(context).size.width * 0.7,
             child: Divider(
-              color: theme.dividerColor,
+              color: theme.colorScheme.onSurface.withOpacity(0.1),
               thickness: 1,
             ),
           ),

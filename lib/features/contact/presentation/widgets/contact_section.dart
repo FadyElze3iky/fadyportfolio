@@ -1,152 +1,118 @@
+import 'package:fadyportfolio/core/utils/functions.dart';
+import 'package:fadyportfolio/features/contact/presentation/widgets/contact_card.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../../../../core/utils/functions.dart';
 
-class ContactSection extends StatelessWidget {
-  const ContactSection({super.key});
+class ContactFormSection extends StatelessWidget {
+  const ContactFormSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isMobile = MediaQuery.of(context).size.width < 655;
-    // final contactController = Get.find<ContactController>();
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
+    final isMobile = MediaQuery.of(context).size.width < 655;
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: theme.cardColor,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: theme.dividerColor, width: 1.5),
+      ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
+          // MacOS window controls and title
+          Row(
+            children: [
+              // Circles
+              ...[
+                Colors.red,
+                Colors.yellow,
+                Colors.green,
+              ].map((color) => Padding(
+                    padding: const EdgeInsets.only(right: 6),
+                    child: CircleAvatar(
+                      radius: 6,
+                      backgroundColor: color,
+                    ),
+                  )),
+              const Spacer(
+                flex: 4,
+              ),
+              Text(
+                "Connect with me on",
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const Spacer(flex: 5),
+            ],
+          ),
+          const SizedBox(height: 24),
           SizedBox(
             width: isMobile
-                ? MediaQuery.of(context).size.width * 0.9
-                : MediaQuery.of(context).size.width * 0.7,
-            child: Text(
-              'Contact',
-              style: theme.textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
+                ? MediaQuery.of(context).size.width * 0.7
+                : MediaQuery.of(context).size.width * 0.5,
+            child: GridView(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: isMobile ? 2 : 3,
+                childAspectRatio: 2,
+                mainAxisSpacing: 40,
+                crossAxisSpacing: 10,
               ),
-            ),
-          ),
-          const SizedBox(height: 32),
-          Container(
-            width: isMobile
-                ? MediaQuery.of(context).size.width * 0.9
-                : MediaQuery.of(context).size.width * 0.7,
-            padding: const EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: theme.cardColor,
-              borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: theme.dividerColor, width: 1.5),
-              boxShadow: [
-                BoxShadow(
-                  color: theme.cardColor.withOpacity(0.08),
-                  blurRadius: 16,
-                  offset: const Offset(0, 8),
-                ),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Get in Touch',
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 24),
-                _buildContactItem(
-                  context,
-                  'Email',
-                  'fadysaied63@gmail.com',
-                  Icons.email_outlined,
-                  () async {
-                    final Uri emailLaunchUri = Uri(
-                      scheme: 'mailto',
-                      path: 'fadysaied63@gmail.com',
-                      queryParameters: {
-                        'subject': 'Hello from Portfolio',
-                        'body': 'I would like to connect with you.',
-                      },
-                    );
-                    await launchUrl(emailLaunchUri);
+                ContactCard(
+                  imgPath: 'assets/images/Discord3d.png',
+                  onTap: () {
+                    Functions.launchURL(
+                        'https://discord.com/users/829831597578387507');
                   },
+                  isMobile: isMobile,
                 ),
-                const SizedBox(height: 16),
-                _buildContactItem(
-                  context,
-                  'LinkedIn',
-                  'Fady Saied',
-                  Icons.work_outline,
-                  () => Functions.launchURL(
-                    'https://www.linkedin.com/in/fady-saied-334b29218',
-                  ),
+                ContactCard(
+                  imgPath: 'assets/images/Facebook3d.png',
+                  onTap: () {
+                    Functions.launchURL(
+                        'https://www.facebook.com/fady.saied.92');
+                  },
+                  isMobile: isMobile,
                 ),
-                const SizedBox(height: 16),
-                _buildContactItem(
-                  context,
-                  'GitHub',
-                  'FadyElze3iky',
-                  Icons.code,
-                  () => Functions.launchURL(
-                    'https://github.com/FadyElze3iky',
-                  ),
+                ContactCard(
+                  imgPath: 'assets/images/Instagram3d.png',
+                  onTap: () {
+                    Functions.launchURL(
+                        'https://www.instagram.com/fady_elze3iky/');
+                  },
+                  isMobile: isMobile,
+                ),
+                ContactCard(
+                  imgPath: 'assets/images/LinkedIn3d.png',
+                  onTap: () {
+                    Functions.launchURL(
+                        'https://www.linkedin.com/in/fady-saied-engineer/');
+                  },
+                  isMobile: isMobile,
+                ),
+                ContactCard(
+                  imgPath: 'assets/images/Github3d.png',
+                  onTap: () {
+                    Functions.launchURL('https://github.com/FadyElze3iky');
+                  },
+                  isMobile: isMobile,
+                ),
+                ContactCard(
+                  imgPath: 'assets/images/Whatapp3d.png',
+                  onTap: () {
+                    Functions.launchURL(
+                        'https://wa.me/201026477255?text=Hello%20there');
+                  },
+                  isMobile: isMobile,
                 ),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildContactItem(
-    BuildContext context,
-    String title,
-    String value,
-    IconData icon,
-    VoidCallback onTap,
-  ) {
-    final theme = Theme.of(context);
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: theme.cardColor,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: theme.dividerColor,
-            ),
-          ),
-          child: Row(
-            children: [
-              Icon(
-                icon,
-                color: theme.primaryColor,
-              ),
-              const SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    value,
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

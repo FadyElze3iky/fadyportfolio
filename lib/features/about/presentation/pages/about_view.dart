@@ -59,7 +59,8 @@ class AboutView extends GetView<AboutController> {
               children: [
                 Text(
                   'A little bit about me',
-                  style: theme.textTheme.headlineLarge,
+                  style: theme.textTheme.headlineLarge!
+                      .copyWith(fontWeight: FontWeight.w500),
                 ),
                 Text(
                   'Who I am and what I do.',

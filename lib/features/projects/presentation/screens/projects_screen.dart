@@ -52,7 +52,7 @@ class ProjectsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: Divider(
-                color: theme.dividerColor,
+                color: theme.colorScheme.onSurface.withOpacity(0.1),
                 thickness: 1,
               ),
             ),
@@ -123,10 +123,12 @@ class ProjectsScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22),
+            SizedBox(
+              width: isMobile
+                  ? MediaQuery.of(context).size.width * 0.9
+                  : MediaQuery.of(context).size.width * 0.7,
               child: Divider(
-                color: theme.dividerColor,
+                color: theme.colorScheme.onSurface.withOpacity(0.1),
                 thickness: 1,
               ),
             ),
