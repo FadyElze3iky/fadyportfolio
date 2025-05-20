@@ -87,7 +87,7 @@ class ProjectCard extends StatelessWidget {
                     scale: 3.5,
                   ),
                   const SizedBox(height: 16),
-                  Text(
+                  SelectableText(
                     "$title -- $slogan",
                     style: theme.textTheme.headlineSmall
                         ?.copyWith(fontWeight: FontWeight.bold),
@@ -104,7 +104,7 @@ class ProjectCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
+                    child: SelectableText(
                       description,
                       style: theme.textTheme.bodyMedium,
                     ),
@@ -142,7 +142,7 @@ class ProjectCard extends StatelessWidget {
                       ),
                     ),
                   if (!isHaveGitHub)
-                    Text(
+                    SelectableText(
                       'Still under development',
                       style: theme.textTheme.bodyMedium,
                     ),
@@ -197,7 +197,7 @@ class ProjectCard extends StatelessWidget {
                 const SizedBox(height: 16),
                 SizedBox(
                   width: 400,
-                  child: Text(
+                  child: SelectableText(
                     "$title -- $slogan",
                     style: theme.textTheme.headlineMedium
                         ?.copyWith(fontWeight: FontWeight.bold),
@@ -217,7 +217,7 @@ class ProjectCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
+                    child: SelectableText(
                       description,
                       style: theme.textTheme.bodyMedium,
                     ),
@@ -256,7 +256,7 @@ class ProjectCard extends StatelessWidget {
                     ),
                   ),
                 if (!isHaveGitHub)
-                  Text(
+                  SelectableText(
                     'Still under development',
                     style: theme.textTheme.bodyMedium,
                   ),

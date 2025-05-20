@@ -39,21 +39,19 @@ class LetsWorkTogetherSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        SelectableText(
           "Let's work together",
           style: theme.textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: isMobile ? 24 : 32,
           ),
-          softWrap: true,
         ),
         const SizedBox(height: 12),
-        Text(
+        SelectableText(
           "Want to discuss an opportunity to create something great?\nI'm ready when you are.",
           style: theme.textTheme.bodyLarge?.copyWith(
             fontSize: isMobile ? 14 : 16,
           ),
-          softWrap: true,
         ),
       ],
     );

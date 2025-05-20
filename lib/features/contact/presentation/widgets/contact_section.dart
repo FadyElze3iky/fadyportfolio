@@ -38,7 +38,7 @@ class ContactFormSection extends StatelessWidget {
               const Spacer(
                 flex: 4,
               ),
-              Text(
+              SelectableText(
                 "Connect with me on",
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w500,

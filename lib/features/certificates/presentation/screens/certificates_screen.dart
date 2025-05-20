@@ -29,20 +29,20 @@ class CertificatesScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   isMobile
-                      ? Text(
+                      ? SelectableText(
                           'Certificates',
                           style: theme.textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w500,
                             fontSize: 60,
                           ),
                         )
-                      : Text(
+                      : SelectableText(
                           'Certificates',
                           style: theme.textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                  Text(
+                  SelectableText(
                     'Certificates I have earned',
                     style: theme.textTheme.bodyMedium,
                   ),

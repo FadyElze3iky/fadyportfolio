@@ -24,7 +24,7 @@ class ProjectsSection extends StatelessWidget {
                 ? MediaQuery.of(context).size.width * 0.9
                 : MediaQuery.of(context).size.width * 0.7,
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text(
+              SelectableText(
                 'PROJECTS',
                 style: theme.textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
@@ -174,7 +174,7 @@ class _ProjectCard extends StatelessWidget {
                 const SizedBox(height: 16),
                 SizedBox(
                   width: isMobile ? double.infinity : 400,
-                  child: Text(
+                  child: SelectableText(
                     title,
                     style: theme.textTheme.headlineMedium
                         ?.copyWith(fontWeight: FontWeight.bold),
@@ -184,7 +184,7 @@ class _ProjectCard extends StatelessWidget {
                 SizedBox(
                   width: isMobile ? double.infinity : 400,
                   child: isMobile
-                      ? Text(
+                      ? SelectableText(
                           description,
                           style: theme.textTheme.bodyMedium,
                         )
@@ -199,7 +199,7 @@ class _ProjectCard extends StatelessWidget {
                               ),
                             ],
                           ),
-                          child: Text(
+                          child: SelectableText(
                             description,
                             style: theme.textTheme.bodyMedium,
                           ),

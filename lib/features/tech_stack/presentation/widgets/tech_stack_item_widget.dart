@@ -128,7 +128,7 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(widget.name,
+                                SelectableText(widget.name,
                                     style: theme.textTheme.bodyLarge!.copyWith(
                                         color: theme.hoverColor,
                                         overflow: TextOverflow.ellipsis,
@@ -142,7 +142,7 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                                     border: Border.all(
                                         color: theme.dividerColor, width: 1.5),
                                   ),
-                                  child: Text(widget.type,
+                                  child: SelectableText(widget.type,
                                       style:
                                           theme.textTheme.bodySmall?.copyWith(
                                         color: Colors.grey,
@@ -178,7 +178,7 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                                   width: 10,
                                 ),
                                 !widget.isMobile
-                                    ? Text(
+                                    ? SelectableText(
                                         widget.name,
                                         style: theme.textTheme.bodyLarge!
                                             .copyWith(
@@ -186,7 +186,7 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                                                 overflow: TextOverflow.ellipsis,
                                                 fontWeight: FontWeight.normal),
                                       )
-                                    : Text(
+                                    : SelectableText(
                                         widget.name,
                                         style: theme.textTheme.bodyMedium!
                                             .copyWith(
@@ -206,7 +206,7 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
                                     border: Border.all(
                                         color: theme.dividerColor, width: 1.5),
                                   ),
-                                  child: Text(widget.type,
+                                  child: SelectableText(widget.type,
                                       style:
                                           theme.textTheme.bodySmall?.copyWith(
                                         color: Colors.grey,

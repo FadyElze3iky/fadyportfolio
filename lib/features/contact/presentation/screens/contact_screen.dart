@@ -31,19 +31,19 @@ class ContactScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   isMobile
-                      ? Text(
+                      ? SelectableText(
                           'Get in\ntouch',
                           style: theme.textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
                         )
-                      : Text(
+                      : SelectableText(
                           'Get in touch',
                           style: theme.textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                  Text(
+                  SelectableText(
                     'Let’s build something awesome.',
                     style: theme.textTheme.bodyMedium,
                   ),

@@ -27,7 +27,7 @@ class GetToKnowMeSection extends StatelessWidget {
                 ? MediaQuery.of(context).size.width * 0.9
                 : MediaQuery.of(context).size.width * 0.7,
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text(
+              SelectableText(
                 'Get to know me',
                 style: theme.textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
@@ -182,6 +182,7 @@ class _InfoCard extends StatelessWidget {
       tag: title,
     );
     return MouseRegion(
+      cursor: SystemMouseCursors.click,
       onEnter: (_) => controller.handleHover(true),
       onExit: (_) => controller.handleHover(false),
       child: GestureDetector(

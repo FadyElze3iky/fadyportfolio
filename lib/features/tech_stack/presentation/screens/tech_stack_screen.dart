@@ -39,19 +39,19 @@ class TechStackScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   isMobile
-                      ? Text(
+                      ? SelectableText(
                           'Tech\nStack',
                           style: theme.textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
                         )
-                      : Text(
+                      : SelectableText(
                           'Tech Stack',
                           style: theme.textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                  Text(
+                  SelectableText(
                     'The dev & design tools I use.',
                     style: theme.textTheme.bodyMedium,
                   ),
@@ -116,7 +116,8 @@ class TechStackScreen extends StatelessWidget {
             }
             if (techStackController.error.isNotEmpty) {
               return Center(
-                  child: Text('Error: \\${techStackController.error}'));
+                  child:
+                      SelectableText('Error: \\${techStackController.error}'));
             }
             final items = techStackController.techStack;
 

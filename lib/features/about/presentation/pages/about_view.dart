@@ -45,7 +45,7 @@ class AboutView extends GetView<AboutController> {
 
       final profile = controller.profile.value;
       if (profile == null) {
-        return const Center(child: Text('No profile data available'));
+        return const Center(child: SelectableText('No profile data available'));
       }
 
       return SingleChildScrollView(
@@ -57,12 +57,12 @@ class AboutView extends GetView<AboutController> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                SelectableText(
                   'A little bit about me',
                   style: theme.textTheme.headlineLarge!
                       .copyWith(fontWeight: FontWeight.w500),
                 ),
-                Text(
+                SelectableText(
                   'Who I am and what I do.',
                   style: theme.textTheme.bodyMedium,
                 ),
@@ -87,7 +87,7 @@ class AboutView extends GetView<AboutController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              SelectableText(
                                 'WHO I AM',
                                 style: theme.textTheme.bodyMedium!.copyWith(
                                     color: theme.textTheme.bodyMedium!.color!
@@ -96,27 +96,28 @@ class AboutView extends GetView<AboutController> {
                               const SizedBox(height: 5),
                               Row(
                                 children: [
-                                  const Text("I'm "),
-                                  Text(
+                                  const SelectableText("I'm "),
+                                  SelectableText(
                                     "Fady",
                                     style: theme.textTheme.bodyMedium!
                                         .copyWith(color: theme.hoverColor),
                                   ),
-                                  const Text(" a Software Engineer, "),
-                                  Text("Egypt 🇪🇬.",
+                                  const SelectableText(
+                                      " a Software Engineer, "),
+                                  SelectableText("Egypt 🇪🇬.",
                                       style: theme.textTheme.bodyMedium!
                                           .copyWith(color: theme.hoverColor)),
                                 ],
                               ),
                               const SizedBox(height: 20),
-                              Text(
+                              SelectableText(
                                 'WHAT I DO',
                                 style: theme.textTheme.bodyMedium!.copyWith(
                                     color: theme.textTheme.bodyMedium!.color!
                                         .withOpacity(.6)),
                               ),
                               const SizedBox(height: 5),
-                              Text(
+                              SelectableText(
                                 profile.whatIDo1,
                                 style: theme.textTheme.bodyMedium,
                               ),
@@ -143,7 +144,7 @@ class AboutView extends GetView<AboutController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              SelectableText(
                                 'WHO I AM',
                                 style: theme.textTheme.bodyMedium!.copyWith(
                                     color: theme.textTheme.bodyMedium!.color!
@@ -152,27 +153,28 @@ class AboutView extends GetView<AboutController> {
                               const SizedBox(height: 5),
                               Row(
                                 children: [
-                                  const Text("I'm "),
-                                  Text(
+                                  const SelectableText("I'm "),
+                                  SelectableText(
                                     "Fady",
                                     style: theme.textTheme.bodyMedium!
                                         .copyWith(color: theme.hoverColor),
                                   ),
-                                  const Text(" a Software Engineer, "),
-                                  Text("Egypt 🇪🇬.",
+                                  const SelectableText(
+                                      " a Software Engineer, "),
+                                  SelectableText("Egypt 🇪🇬.",
                                       style: theme.textTheme.bodyMedium!
                                           .copyWith(color: theme.hoverColor)),
                                 ],
                               ),
                               const SizedBox(height: 20),
-                              Text(
+                              SelectableText(
                                 'WHAT I DO',
                                 style: theme.textTheme.bodyMedium!.copyWith(
                                     color: theme.textTheme.bodyMedium!.color!
                                         .withOpacity(.6)),
                               ),
                               const SizedBox(height: 5),
-                              Text(
+                              SelectableText(
                                 profile.whatIDo1,
                                 style: theme.textTheme.bodyMedium,
                               ),
@@ -199,7 +201,7 @@ class AboutView extends GetView<AboutController> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            SelectableText(
                               'WHO I AM',
                               style: theme.textTheme.bodyMedium!.copyWith(
                                   color: theme.textTheme.bodyMedium!.color!
@@ -208,27 +210,27 @@ class AboutView extends GetView<AboutController> {
                             const SizedBox(height: 5),
                             Row(
                               children: [
-                                const Text("I'm "),
-                                Text(
+                                const SelectableText("I'm "),
+                                SelectableText(
                                   "Fady",
                                   style: theme.textTheme.bodyMedium!
                                       .copyWith(color: theme.hoverColor),
                                 ),
-                                const Text(" a Software Engineer, "),
-                                Text("Egypt 🇪🇬.",
+                                const SelectableText(" a Software Engineer, "),
+                                SelectableText("Egypt 🇪🇬.",
                                     style: theme.textTheme.bodyMedium!
                                         .copyWith(color: theme.hoverColor)),
                               ],
                             ),
                             const SizedBox(height: 20),
-                            Text(
+                            SelectableText(
                               'WHAT I DO',
                               style: theme.textTheme.bodyMedium!.copyWith(
                                   color: theme.textTheme.bodyMedium!.color!
                                       .withOpacity(.6)),
                             ),
                             const SizedBox(height: 5),
-                            Text(
+                            SelectableText(
                               profile.whatIDo1,
                               style: theme.textTheme.bodyMedium,
                             ),
@@ -241,7 +243,7 @@ class AboutView extends GetView<AboutController> {
               ],
             ),
             const SizedBox(height: 20),
-            Text(
+            SelectableText(
               profile.whatIDo2,
               style: theme.textTheme.bodyMedium,
             ),
@@ -249,14 +251,14 @@ class AboutView extends GetView<AboutController> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                SelectableText(
                   'WHAT I DID',
                   style: theme.textTheme.bodyMedium!.copyWith(
                       color:
                           theme.textTheme.bodyMedium!.color!.withOpacity(.6)),
                 ),
                 const SizedBox(height: 5),
-                Text(profile.WhatIDid)
+                SelectableText(profile.WhatIDid)
               ],
             ),
             const SizedBox(height: 32),
@@ -317,7 +319,7 @@ class AboutView extends GetView<AboutController> {
               ),
             ),
             const SizedBox(height: 20),
-            const Text("Let's build something great..."),
+            const SelectableText("Let's build something great..."),
             const SizedBox(height: 30),
           ],
         ),

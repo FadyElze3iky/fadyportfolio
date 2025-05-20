@@ -88,7 +88,7 @@ class NavbarController extends GetxController {
           ),
           child: Row(
             children: [
-              Text(
+              SelectableText(
                 label,
                 style: theme.textTheme.bodyLarge?.copyWith(
                   color: isActive

@@ -96,7 +96,7 @@ class Header extends StatelessWidget {
       children: [
         if (isSmallScreen) ...[
           Row(children: [
-            Text(
+            SelectableText(
               "Hi",
               style: theme.textTheme.headlineLarge!
                   .copyWith(fontSize: headlineSize),
@@ -112,7 +112,7 @@ class Header extends StatelessWidget {
         ],
         Row(
           children: [
-            Text(
+            SelectableText(
               "I'm",
               style: theme.textTheme.headlineLarge!.copyWith(
                 color: theme.textTheme.headlineLarge!.color!.withOpacity(.4),
@@ -120,7 +120,7 @@ class Header extends StatelessWidget {
               ),
             ),
             if (!isSmallScreen && !isMediumScreen) ...[
-              Text(
+              SelectableText(
                 " Fady Saied",
                 style: theme.textTheme.headlineLarge!.copyWith(
                   fontSize: headlineSize,
@@ -128,7 +128,7 @@ class Header extends StatelessWidget {
               ),
             ] else ...[
               Flexible(
-                child: Text(
+                child: SelectableText(
                   " Fady Saied",
                   style: theme.textTheme.headlineLarge!.copyWith(
                     fontSize: headlineSize,
@@ -139,7 +139,7 @@ class Header extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        Text(
+        SelectableText(
           'A software engineer skilled in building cross-platform\napplications with Flutter and Jetpack Compose. I also integrate\nmachine learning to develop intelligent, user-centric solutions.',
           style: theme.textTheme.bodyLarge!.copyWith(
             fontSize: fontSize,

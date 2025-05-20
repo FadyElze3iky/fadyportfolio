@@ -32,13 +32,13 @@ class ProjectsScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    SelectableText(
                       'Projects',
                       style: theme.textTheme.headlineLarge?.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text(
+                    SelectableText(
                       'Projects and ideas I’ve worked on',
                       style: theme.textTheme.bodyMedium,
                     ),
@@ -90,7 +90,8 @@ class ProjectsScreen extends StatelessWidget {
       }
       if (projectsController.error.value.isNotEmpty) {
         return Center(
-            child: Text('Error: \\${projectsController.error.value}'));
+            child:
+                SelectableText('Error: \\${projectsController.error.value}'));
       }
       return SingleChildScrollView(
         child: Column(
@@ -106,13 +107,13 @@ class ProjectsScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    SelectableText(
                       'Projects',
                       style: theme.textTheme.headlineLarge?.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text(
+                    SelectableText(
                       'Projects and ideas I’ve worked on',
                       style: theme.textTheme.bodyMedium,
                     ),
