@@ -6,7 +6,7 @@ import 'package:fadyportfolio/features/tech_stack/presentation/screens/tech_stac
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/layouts/base_layout.dart';
-import '../controllers/home_controller.dart';
+import '../../../../core/navigation/home_controller.dart';
 import '../widgets/home_header.dart';
 import '../widgets/projects_section.dart';
 import '../widgets/get_to_know_me_section.dart';

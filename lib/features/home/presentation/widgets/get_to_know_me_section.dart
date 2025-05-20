@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:fadyportfolio/features/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/navigation/home_controller.dart';
 import '../controllers/get_to_know_me_controller.dart';
 import 'background_painter.dart';
 import '../controllers/info_card_controller.dart';
@@ -38,7 +38,7 @@ class GetToKnowMeSection extends StatelessWidget {
           const SizedBox(height: 32),
           if (isMobile) ...[
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: 300,
               child: PageView(
                 controller: controller.pageController,
                 onPageChanged: (index) {

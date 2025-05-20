@@ -1,7 +1,7 @@
 import 'package:fadyportfolio/features/home/presentation/widgets/background_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../features/home/presentation/widgets/navbar.dart';
+import '../navigation/navbar.dart';
 import 'layout_controller.dart';
 
 class BaseLayout extends StatelessWidget {

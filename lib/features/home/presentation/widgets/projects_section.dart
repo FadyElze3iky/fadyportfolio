@@ -1,6 +1,6 @@
 import 'package:fadyportfolio/core/theme/theme_controller.dart';
 import 'package:fadyportfolio/core/utils/functions.dart';
-import 'package:fadyportfolio/features/home/presentation/controllers/home_controller.dart';
+import '../../../../core/navigation/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:visibility_detector/visibility_detector.dart';
