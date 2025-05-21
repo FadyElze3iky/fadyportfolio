@@ -75,11 +75,7 @@ class _TechStackItemWidgetState extends State<TechStackItemWidget>
             scale: _scaleAnimation.value,
             child: GestureDetector(
               onTap: () {
-                _handleHover(true);
-                Future.delayed(const Duration(milliseconds: 200), () {
-                  _handleHover(false);
-                  Functions.launchURL(widget.url);
-                });
+                Functions.launchURL(widget.url);
               },
               child: Container(
                   height: 200,

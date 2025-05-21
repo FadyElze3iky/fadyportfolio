@@ -102,7 +102,7 @@ class ContactFormSection extends StatelessWidget {
                   isMobile: isMobile,
                 ),
                 ContactCard(
-                  imgPath: 'assets/images/Whatapp3d.png',
+                  imgPath: 'assets/images/Whatsapp3d.png',
                   onTap: () {
                     Functions.launchURL(
                         'https://wa.me/201026477255?text=Hello%20there');
